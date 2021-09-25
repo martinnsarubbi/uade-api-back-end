@@ -7,7 +7,7 @@ var cors = require('cors');
 var app = express();
 
 //conectar BD
-var urlBD="mongodb+srv://user1:user1@cluster0.3hegr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+var urlBD="mongodb+srv://user1:user1@cluster0.nql9m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
  //opciones conexion
 var opts = {useNewUrlParser : true, useUnifiedTopology: true,connectTimeoutMS:20000, useFindAndModify: false};
 //importo driver
