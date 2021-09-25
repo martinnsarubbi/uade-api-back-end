@@ -1,0 +1,30 @@
+{
+  "name": "apiabm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node App.js",
+    "deploy": "git add . && git commit -am \"Deployment\" && git push heroku master"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "connect-multiparty": "^2.2.0",
+    "cors": "2.8.5",
+    "csv-generate": "^3.3.0",
+    "csv-parser": "^2.3.3",
+    "csv-writer": "^1.6.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "form-data": "^3.0.0",
+    "jwt-simple": "^0.5.5",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.19",
+    "mongoose-pagination": "^1.0.0",
+    "nodemon": "^1.19.4"
+  }
+}
