@@ -1,1 +1,7 @@
-node_modules
+#ignore node modules
+
+node_modules/*
+imagenes/*
+
+# ignore Local ENV File
+# .env  
