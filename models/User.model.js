@@ -11,7 +11,7 @@ var UserSchema = new mongoose.Schema({
     email: String,
     password: String,
     date: Date,
-    child:
+    children:
     { 
         type: Schema.ObjectId,
         ref: "Child"

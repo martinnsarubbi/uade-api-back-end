@@ -4,7 +4,7 @@ var jwt = require('jsonwebtoken');
 exports.createChild = async function (child) {
     // Creating a new Mongoose Object by using the new keyword
     
-    var newChild = new User({
+    var newChild = new Child({
         name: child.name,
         lastName: child.lastName,
         dni: child.dni,
@@ -17,7 +17,7 @@ exports.createChild = async function (child) {
     })
 
     try {
-        // Saving the User 
+        // Saving the Child 
         var savedChild = await newChild.save();
        
         return savedChild;
