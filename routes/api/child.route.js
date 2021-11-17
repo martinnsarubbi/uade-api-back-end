@@ -8,5 +8,6 @@ router.get('/test', function(req, res, next) {
     res.send('Llegaste a la ruta de  api/user.routes');
   });
 router.post('/createChild', Authorization, ChildController.createChild)
+router.post('/childrenById', Authorization, ChildController.getChildrenById)
 
 module.exports = router;

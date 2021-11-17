@@ -32,5 +32,22 @@ exports.createChild = async function (child, userId) {
     }
 }
 
+exports.getChildren = async function (query) {
+    try {
+        console.log("Query",query)
+        var user = await User.findById(query)
+        childrenId = user.children;
+        childrenArray = [];
+        for (var i = 0; i < childrenId.length; i++) {
+            var child = await Child.findById(childrenId[i])
+            childrenArray.push(child);
+        }
+        return childrenArray;
+    } catch (e) {
+        console.log("error services",e)
+        throw Error('Error while Paginating Children');
+    }
+}
+
 
 _this = this

@@ -27,3 +27,13 @@ exports.createChild = async function (req, res, next) {
         return res.status(400).json({status: 400, message: "Child Creation was Unsuccesfull"})
     }
 }
+
+exports.getChildrenById = async function (req, res, next) {
+    let filtro= {_id: req.body.userId}
+    try {
+        var Children = await ChildService.getChildren(filtro)
+        return res.status(200).json({status: 200, data: Children, message: "Succesfully Children Recieved"});
+    } catch (e) {
+        return res.status(400).json({status: 400, message: e.message});
+    }
+}

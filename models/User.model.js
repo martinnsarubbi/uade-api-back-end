@@ -12,10 +12,12 @@ var UserSchema = new mongoose.Schema({
     password: String,
     date: Date,
     children:
-    { 
-        type: Schema.ObjectId,
-        ref: "Child"
-    }
+    [
+        { 
+            type: Schema.ObjectId,
+            ref: "Child"
+        }
+    ]
 })
 
 UserSchema.plugin(mongoosePaginate)
