@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 var mongoosePaginate = require('mongoose-paginate')
-
+var Schema = mongoose.Schema;
 
 var ChildSchema = new mongoose.Schema({
     name: String,
