@@ -15,10 +15,11 @@ exports.createChild = async function (req, res, next) {
         allergies: req.body.allergies,
         pediatricRegistries: req.body.pediatricRegistries,
         vaccinations: req.body.vaccinations
-    }
+    };
+    var userId = req.body.userId;
     try {
         // Calling the Service function with the new object from the Request Body
-        var createdChild = await ChildService.createChild(Child)
+        var createdChild = await ChildService.createChild(Child, userId)
         return res.status(201).json({createdChild, message: "Succesfully Created Child"})
     } catch (e) {
         //Return an Error Response Message with Code and the Error Message.

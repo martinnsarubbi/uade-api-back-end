@@ -1,7 +1,7 @@
 var Child = require('../models/Child.model');
-var jwt = require('jsonwebtoken');
+var User = require('../models/User.model')
 
-exports.createChild = async function (child) {
+exports.createChild = async function (child, userId) {
     // Creating a new Mongoose Object by using the new keyword
     
     var newChild = new Child({
@@ -20,6 +20,10 @@ exports.createChild = async function (child) {
         // Saving the Child 
         var savedChild = await newChild.save();
        
+        var updatedUser = await User.findOneAndUpdate(
+            {_id: userId},
+            {$push:{children: savedChild._id}},
+            {new: true})
         return savedChild;
     } catch (e) {
         // return a Error message describing the reason 
