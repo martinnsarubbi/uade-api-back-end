@@ -9,5 +9,6 @@ router.get('/test', function(req, res, next) {
   });
 router.post('/createChild', Authorization, ChildController.createChild)
 router.post('/childrenById', Authorization, ChildController.getChildrenById)
+router.post('/addVaccine', Authorization, ChildController.addVaccine)
 
 module.exports = router;

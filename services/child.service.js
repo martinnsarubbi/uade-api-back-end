@@ -59,4 +59,21 @@ exports.getChildren = async function (query) {
 }
 
 
+exports.addVaccine = async function (vaccination, childId) {
+
+    try {
+       console.log("!!!!!!!!!" + vaccination + "!!!!!!!!!")
+        var updatedChild = await Child.findOneAndUpdate(
+            {_id: childId},
+            {$push:{vaccinations: vaccination}},
+            {new: true})
+        return updatedChild;
+    } catch (e) {
+        // return a Error message describing the reason 
+        console.log(e)    
+        throw Error("Error while Adding Vaccine To Child")
+    }
+}
+
+
 _this = this

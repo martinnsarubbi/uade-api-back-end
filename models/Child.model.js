@@ -32,7 +32,8 @@ var ChildSchema = new mongoose.Schema({
         {
             vaccineName: String,
             vaccinationDate: String,
-            observations: String
+            observations: String,
+            location: String
         }
     ]
 })
