@@ -9,6 +9,7 @@ exports.createRegistry = async function (req, res, next) {
         weight: req.body.weight,
         height: req.body.height,
         headCirc: req.body.headCirc,
+        observations: req.body.observations,
         upcomingStudies: req.body.upcomingStudies,
         meds: req.body.meds
     };

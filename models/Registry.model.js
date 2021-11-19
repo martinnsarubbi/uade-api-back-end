@@ -8,6 +8,7 @@ var RegistrySchema = new mongoose.Schema({
     weight: Number,
     height: Number,
     headCirc: Number,
+    observations: String,
     upcomingStudies: String,
     meds:
     [

@@ -9,6 +9,7 @@ exports.createRegistry = async function (registry, childId) {
         doctorId: registry.doctorId,
         weight: registry.weight,
         height: registry.height,
+        observations: registry.observations,
         headCirc: registry.headCirc,
         upcomingStudies: registry.upcomingStudies,
         meds: registry.meds
