@@ -5,7 +5,7 @@ var ChildController = require('../../controllers/child.controller');
 var Authorization = require('../../auth/authorization');
 
 router.get('/test', function(req, res, next) {
-    res.send('Llegaste a la ruta de  api/user.routes');
+    res.send('Llegaste a la ruta de  api/child.routes');
   });
 router.post('/createChild', Authorization, ChildController.createChild)
 router.post('/childrenById', Authorization, ChildController.getChildrenById)

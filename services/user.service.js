@@ -50,7 +50,7 @@ exports.createUser = async function (user) {
         }, process.env.SECRET, {
             expiresIn: 86400 // expires in 24 hours
         });
-        return token;
+        return {token:token, user:savedUser};
     } catch (e) {
         // return a Error message describing the reason 
         console.log(e)    
