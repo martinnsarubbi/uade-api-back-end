@@ -1,5 +1,6 @@
 var Child = require('../models/Child.model');
-var User = require('../models/User.model')
+var User = require('../models/User.model');
+var Registry = require('../models/Registry.model');
 
 exports.createChild = async function (child, userId) {
     // Creating a new Mongoose Object by using the new keyword
@@ -38,10 +39,18 @@ exports.getChildren = async function (query) {
         var user = await User.findById(query)
         childrenId = user.children;
         childrenArray = [];
+        pediatricRegistriesArray = []
         for (var i = 0; i < childrenId.length; i++) {
             var child = await Child.findById(childrenId[i])
+            for (var j = 0; j < child.pediatricRegistries.length; j++) {
+                var pediatricRegistry = await Registry.findById(child.pediatricRegistries[j]);
+                pediatricRegistriesArray.push(pediatricRegistry);
+            }
+            child.pediatricRegistries = pediatricRegistriesArray;
+            pediatricRegistriesArray = [];
             childrenArray.push(child);
         }
+
         return childrenArray;
     } catch (e) {
         console.log("error services",e)
