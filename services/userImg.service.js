@@ -10,9 +10,9 @@ _this = this
 //configurar cloudinary
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
-    cloud_name: 'sarasapaula', //reemplazar con sus credenciales
-    api_key: '827784374844765', 
-    api_secret: 'EfhdI2XXe-jM6JzOKaIX8FEDTDY'
+    cloud_name: 'dbisjpe62', //reemplazar con sus credenciales
+    api_key: '486596153868917', 
+    api_secret: 'JPHfOt1qGNagL1BmW8nmO5ApAiM'
 });
 
 // Async function to get the Contact List
