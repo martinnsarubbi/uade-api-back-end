@@ -172,10 +172,9 @@ exports.getUserByMail = async function (mail) {
 }
 
 exports.updateUserPassword = async function (user, newPassword) {
+    var hashedPassword = bcrypt.hashSync(newPassword, 8);
     
-
-
-    user.password = newPassword;
+    user.password = hashedPassword;
     console.log(user)
     try {
         var savedUser = await user.save()
