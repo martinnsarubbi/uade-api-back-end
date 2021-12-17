@@ -1,5 +1,6 @@
 let nodemailer = require('nodemailer');
 var CodeGenerator = require('node-code-generator');
+var UserService = require('../services/user.service');
 
 exports.sendEmail = async function (req, res, next){
     
@@ -16,7 +17,6 @@ exports.sendEmail = async function (req, res, next){
     });
     var generator = new CodeGenerator();
     var code = generator.generateCodes('#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*', 1, {});
-    console.log(code);
     // Definimos el email
     var mailOptions = {
         from: 'apiuade1@gmail.com',
@@ -25,6 +25,12 @@ exports.sendEmail = async function (req, res, next){
         html: '<h1>Medicapp - Ingresá el siguiente código para restablecer tu contraseña:  </h1><p>' + code +'</p>',
     };
     console.log("mail",mailOptions)
+    try {
+        var updatedUser = await UserService.updateCode(req.body.destinatario, code[0]);
+        console.log(updatedUser);
+    } catch (e) {
+        return res.status(400).json({status: 400., message: e.message})
+    }
 
     // Enviamos el email
     try

@@ -126,3 +126,30 @@ exports.loginUser = async function (user) {
     }
 
 }
+
+exports.updateCode = async function (destinatario, generatedCode) {
+    
+    var email = {email : destinatario}
+    console.log(email);
+    console.log(generatedCode);
+    try {
+        //Find the old User Object by the Id
+        var oldUser = await User.findOne(email);
+    } catch (e) {
+        throw Error("Error occured while Finding the User")
+    }
+    // If no old User Object exists return false
+    if (!oldUser) {
+        return false;
+    }
+    //Edit the User Object
+
+    oldUser.code = generatedCode;
+    console.log(oldUser)
+    try {
+        var savedUser = await oldUser.save()
+        return savedUser;
+    } catch (e) {
+        throw Error("And Error occured while updating the User");
+    }
+}

@@ -11,6 +11,7 @@ var UserSchema = new mongoose.Schema({
     email: String,
     password: String,
     date: Date,
+    code: String,
     children:
     [
         { 
