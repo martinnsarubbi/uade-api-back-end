@@ -21,6 +21,7 @@ router.post('/guardarImgUser',UserController.guardarImagenUser)
 router.post('/uploadImg',UploadController.uploadFilesImgUser);
 router.post('/imgUserByMail',Authorization,UserController.getImagenUserByMail)
 router.post('/sendMail',MailController.sendEmail)
+router.post('/resetPassword', UserController.resetPassword)
 
 
 

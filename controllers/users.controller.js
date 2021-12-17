@@ -162,4 +162,21 @@ exports.getImagenUserByMail = async function (req, res, next) {
     }
 }
     
-    
+exports.resetPassword = async function (req, res, next) {
+
+    try {
+        // Calling the Service function with the new object from the Request Body
+        var user = await UserService.getUserByMail(req.body.email);
+        console.log(user);
+        if(user.code == req.body.code) {
+            console.log(user.code)
+            var newPassword = await UserService.updateUserPassword(user, req.body.newPassword)
+
+            return res.status(201).json({message: "Password successfully updated"})
+        }
+        return res.status(400).json({status: 400, message: "Invalid code"})
+        
+    } catch (e) {
+        return res.status(400).json({status: 400, message: "Invalid code"})
+    }
+}

@@ -153,3 +153,34 @@ exports.updateCode = async function (destinatario, generatedCode) {
         throw Error("And Error occured while updating the User");
     }
 }
+
+
+exports.getUserByMail = async function (mail) {
+    
+    var email = {email : mail}
+
+    try {
+        var oldUser = await User.findOne(email);
+    } catch (e) {
+        throw Error("Error occured while Finding the User")
+    }
+    // If no old User Object exists return false
+    if (!oldUser) {
+        return false;
+    }
+    return oldUser;
+}
+
+exports.updateUserPassword = async function (user, newPassword) {
+    
+
+
+    user.password = newPassword;
+    console.log(user)
+    try {
+        var savedUser = await user.save()
+        return savedUser;
+    } catch (e) {
+        throw Error("And Error occured while updating the User");
+    }
+}
